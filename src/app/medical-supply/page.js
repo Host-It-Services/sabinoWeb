@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion"
 import { Check } from "lucide-react"
@@ -16,6 +16,12 @@ export default function MedicalSupply() {
     const [activeCategory, setActiveCategory] = useState(0)
     const [isMobile, setIsMobile] = useState(false)
     const shouldReduceMotion = useReducedMotion()
+    const productref = useRef(null)
+
+
+    const scrollToSection = (ref) => {
+        ref.current?.scrollIntoView({ behavior: "smooth" })
+    }
 
     useEffect(() => {
         const checkMobile = () => {
@@ -126,7 +132,7 @@ export default function MedicalSupply() {
 
     const handleDownloadProfile = () => {
         // The path is relative to the public directory
-        const pdfUrl = "/SABINO Medical Supply Profile (2).pdf"
+        const pdfUrl = "/SABINO-Medical-Supply-Profile (2).pdf"
         const link = document.createElement("a")
         link.href = pdfUrl
         link.download = "Sabino-Medicals-Profile.pdf"
@@ -165,6 +171,7 @@ export default function MedicalSupply() {
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                         <Link href="products" className="w-full sm:w-auto">
                             <motion.button
+                                onClick={() => scrollToSection(productref)}
                                 className="w-full sm:w-auto bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition duration-300"
                                 variants={fadeInUpVariants}
                                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -239,7 +246,7 @@ export default function MedicalSupply() {
             </section>
 
             {/* Product Categories */}
-            <section className="py-16 md:py-20 bg-gray-100" id="products">
+            <section ref={productref} className="py-16 md:py-20 bg-gray-100" id="products">
                 <div className="container mx-auto px-4 md:px-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10 md:mb-14">
                         Our Products Categories

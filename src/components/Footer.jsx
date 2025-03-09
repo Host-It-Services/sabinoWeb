@@ -46,7 +46,7 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6">About Us</h4>
             <p className={`${currentScheme.text} opacity-80 leading-relaxed`}>
-              We are a diverse business group committed to innovation and excellence in medical supplies and sustainable
+              We are a diverse business group committed to innovation and excellence in medical supplies, mining equipment, and sustainable
               construction. Our mission is to provide top-quality products and services that improve lives and build a
               better future.
             </p>

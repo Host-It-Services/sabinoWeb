@@ -22,14 +22,14 @@ const MedicalSupplyNav = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/construction" className="flex-shrink-0">
-              <Image 
-               src="/constructionLogo.png" 
-               alt="Medical Supply Logo"
-               width={150} // Adjust based on your logo's aspect ratio
-               height={40} // Adjust based on your logo's aspect ratio
-              className="h-[7em] w-25" // Ensure the image scales properly
-              priority // Preload this image since it's above the fold
-                />
+              <Image
+                src="/bigi.webp"
+                alt="Medical Supply Logo"
+                width={200} // Adjusbased on your logo's aspect ratio
+                height={40} // Adjust based on your logo's aspect ratio
+                className="h-auto w-[75px]" // Ensure the image scales properly
+                priority // Preload this image since it's above the fold
+              />
             </Link>
           </div>
           <div className="hidden md:block">
@@ -47,11 +47,11 @@ const MedicalSupplyNav = () => {
                 About Us
               </Link>
               <Link href="#Specialties-constuction" className="hover:backdrop-blur px-3 py-2 rounded-md text-sm font-medium">
-              Our Specialties
+                Our Specialties
               </Link>
               <Link href="#constuction-expertise" className="hover:backdrop-blur px-3 py-2 rounded-md text-sm font-medium">
-              Expertise             
-               </Link>
+                Expertise
+              </Link>
               <Link
                 href="/contact"
                 className="hover:backdrop-blur px-3 py-2 rounded-md text-sm font-medium"
@@ -82,31 +82,31 @@ const MedicalSupplyNav = () => {
               Home
             </Link>
             <Link
-                href="#about-constuction"
-                onClick={handleLinkClick} // Close the menu when clicked
+              href="#about-constuction"
+              onClick={handleLinkClick} // Close the menu when clicked
               className="hover:backdrop-blur block px-3 py-2 rounded-md text-base font-medium"
             >
               About Us
 
             </Link>
             <Link
-                href="#Specialties-constuction"
-                onClick={handleLinkClick} // Close the menu when clicked
+              href="#Specialties-constuction"
+              onClick={handleLinkClick} // Close the menu when clicked
               className="hover:backdrop-blur block px-3 py-2 rounded-md text-base font-medium"
             >
               Our Specialties
 
             </Link>
             <Link
-                href="#constuction-expertise"
-                onClick={handleLinkClick} // Close the menu when clicked
+              href="#constuction-expertise"
+              onClick={handleLinkClick} // Close the menu when clicked
               className="hover:backdrop-blur block px-3 py-2 rounded-md text-base font-medium"
             >
-             Expertise
+              Expertise
 
             </Link>
             <Link
-                href="/contact"
+              href="/contact"
               onClick={handleLinkClick} // Close the menu when clicked
               className="hover:backdrop-blur block px-3 py-2 rounded-md text-base font-medium"
             >

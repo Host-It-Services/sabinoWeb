@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import SabinoHoldingsNav from "../../components/SabinoHoldingsNav"
+import { Download } from "lucide-react"
 import { Link } from "react-scroll";
 
 
@@ -12,6 +13,12 @@ export default function SabinoHoldings() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const carouselRef = useRef(null); // Reference for the carousel container
     const shouldReduceMotion = useReducedMotion();
+    const productminigref = useRef(null)
+
+    const scrollToSection = (ref) => {
+        ref.current?.scrollIntoView({ behavior: "smooth" })
+    }
+
 
     const products = [
         {
@@ -64,7 +71,7 @@ export default function SabinoHoldings() {
 
     const handleDownloadProfile = () => {
         // The path is relative to the public directory
-        const pdfUrl = "/SABINO PROFILE 2025.pdf"
+        const pdfUrl = "/SABINO-PROFILE-2025.pdf"
         const link = document.createElement("a")
         link.href = pdfUrl
         link.download = "SABINO-PROFILE-2025.pdf"
@@ -90,17 +97,9 @@ export default function SabinoHoldings() {
                         variants={fadeInUpVariants}
                         transition={{ duration: 0.5 }}
                     >
-                        SABINO HOLDINGS
+                        SABINO MINING
                     </motion.h1>
-                    <motion.p
-                        className="text-2xl md:text-3xl mb-8 max-w-3xl"
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeInUpVariants}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        MINING & CONSTRUCTION
-                    </motion.p>
+
                     <motion.p
                         className="text-xl md:text-2xl mb-8 max-w-2xl"
                         initial="hidden"
@@ -114,6 +113,7 @@ export default function SabinoHoldings() {
                         <Link href="products" className="w-full sm:w-auto">
 
                             <motion.button
+                                onClick={() => scrollToSection(productminigref)}
                                 className="w-full sm:w-auto bg-white text-[#7c816f] font-bold py-3 px-8 rounded-full hover:bg-[#aebc8d] hover:text-white transition duration-300"
                                 variants={fadeInUpVariants}
                                 transition={{ duration: 0.5, delay: 0.4 }}
@@ -132,7 +132,7 @@ export default function SabinoHoldings() {
                             whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
                             whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
                         >
-                            {/* <Download className="w-5 h-5 mr-2" /> */}
+                            <Download className="w-5 h-5 mr-2" />
                             Download Profile
                         </motion.button>
                     </div>
@@ -198,7 +198,7 @@ export default function SabinoHoldings() {
             </section>
 
             {/* Products Section */}
-            <section className="py-20 bg-[#aebc8d]" id="productssabino">
+            <section ref={productminigref} className="py-20 bg-[#aebc8d]" id="productssabino">
                 <div className="container mx-auto px-4">
                     <motion.h2
                         className="text-4xl font-bold text-center mb-12 text-white"

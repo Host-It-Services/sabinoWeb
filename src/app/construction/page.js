@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useReducedMotion } from "framer-motion"
@@ -337,9 +337,7 @@ export default function Construction() {
                                 <h3 className="text-xl font-bold text-[#253356]">{services[activeTab].title}</h3>
                             </div>
                             <p className="text-gray-600 mb-6">{services[activeTab].description}</p>
-                            <button className="flex items-center text-[#f5b642] font-semibold hover:underline">
-                                Learn more <ArrowRight className="ml-2 w-4 h-4" />
-                            </button>
+
                         </div>
                     </motion.div>
                 </div>

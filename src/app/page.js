@@ -34,6 +34,33 @@ export default function Home() {
     visible: { opacity: 1 },
   }
 
+  const core =
+    [
+      {
+        title: "Sabino Medicals",
+        description:
+          "Delivering cutting-edge medical equipment and supplies to healthcare facilities worldwide, ensuring better patient care and improved health outcomes.",
+        image: "/delivering.webp",
+        color: "blue",
+        link: "/medical-supply",
+      },
+      {
+        title: "Sabino Mining",
+        description:
+          "Pioneering sustainable solutions in mining, ensuring responsible resource extraction and environmental conservation.",
+        image: "/bulldozer.webp",
+        color: "#aebc8d",
+        link: "/sabinmo-holding",
+      },
+      {
+        title: "Sabino Construction",
+        description:
+          "Providing top-tier construction services, from infrastructure development to innovative building solutions that meet the needs of modern society.",
+        image: "/construction-.webp",
+        color: "#d49634",
+        link: "/construction",
+      },
+    ]
 
 
 
@@ -58,7 +85,6 @@ export default function Home() {
   return (
     <div className="bg-gray-50">
       <Header />
-      {/* Hero Section */}
       <motion.section
         className="relative h-screen bg-gradient-to-r from-gray-800 to-gray-900"
         initial="hidden"
@@ -79,17 +105,17 @@ export default function Home() {
             Empowering Progress
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-            Discover how our diverse portfolio in medical supplies and construction is shaping the future of industries.
+            Discover how our diverse portfolio in medical supplies, mining equipment, and construction is shaping the future of industries.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <Link
               href="/medical-supply"
               className="bg-white text-gray-800 hover:bg-gray-200 font-bold py-3 px-6 rounded-lg transition duration-300 inline-block"
             >
-              Explore Medicals
+              Explore Medical Supplies
             </Link>
             <Link
-              href="/sabinmo-holding"
+              href="/sabino-holding"
               className="bg-white text-gray-800 hover:bg-gray-200 font-bold py-3 px-6 rounded-lg transition duration-300 inline-block"
             >
               Explore Mining
@@ -101,8 +127,8 @@ export default function Home() {
               Explore Construction
             </Link>
           </div>
-
         </motion.div>
+
       </motion.section>
 
       {/* Core Businesses Section */}
@@ -118,25 +144,8 @@ export default function Home() {
           >
             Our Core Businesses
           </motion.h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Sabino Medicals",
-                description:
-                  "Delivering cutting-edge medical equipment and supplies to healthcare facilities worldwide, ensuring better patient care and improved health outcomes.",
-                image: "/delivering.webp",
-                color: "blue",
-                link: "/medical-supply",
-              },
-              {
-                title: "Sabino Mining & construction",
-                description:
-                  "Pioneering sustainable solutions in mining and construction, we're building the infrastructure of tomorrow while preserving our planet's resources.",
-                image: "/construction-.webp",
-                color: "gray",
-                link: "/sabinmo-holding",
-              },
-            ].map((business, index) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {core.map((business, index) => (
               <motion.div
                 key={index}
                 className="bg-gray-100 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:shadow-xl"
@@ -153,9 +162,9 @@ export default function Home() {
                     width={600}
                     height={400}
                     className="w-full h-64 object-cover"
-                    priority // Preload this image
+                    priority
                     placeholder="blur"
-                    blurDataURL={`${business.image}-blur.webp`} // Add a low-quality placeholder
+                    blurDataURL={`${business.image}-blur.webp`}
                   />
                   {!isMobile && (
                     <motion.div
@@ -164,7 +173,8 @@ export default function Home() {
                     >
                       <Link
                         href={business.link}
-                        className={`text-white bg-${business.color}-600 hover:bg-${business.color}-700 font-bold py-2 px-4 rounded-lg transition duration-300 inline-flex items-center`}
+                        className="text-white font-bold py-2 px-4 rounded-lg transition duration-300 inline-flex items-center"
+                        style={{ backgroundColor: business.color, hover: { backgroundColor: "#d49634" } }}
                       >
                         Learn More <ArrowRight className="ml-2" />
                       </Link>
@@ -172,11 +182,14 @@ export default function Home() {
                   )}
                 </div>
                 <div className="p-6">
-                  <h3 className={`text-2xl font-bold mb-2 text-${business.color}-600`}>{business.title}</h3>
+                  <h3 className="text-2xl font-bold mb-2" style={{ color: business.color }}>
+                    {business.title}
+                  </h3>
                   <p className="text-gray-600 mb-4">{business.description}</p>
                   <Link
                     href={business.link}
-                    className={`text-${business.color}-600 hover:text-${business.color}-800 font-semibold flex items-center`}
+                    className="font-semibold flex items-center"
+                    style={{ color: business.color, hover: { color: "#d49634" } }}
                   >
                     Learn More
                     <ChevronRight className="ml-1" />
@@ -187,6 +200,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
 
       {/* Our Impact Section */}
       <section className="py-16 bg-gray-100">
